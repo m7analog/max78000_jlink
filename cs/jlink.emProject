@@ -1,0 +1,54 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="MAX78000" target="8" version="2">
+  <project Name="MAX78000">
+    <configuration
+      Name="Common"
+      Target="Cortex-M0"
+      arm_architecture="v7M"
+      arm_core_type="Cortex-M0"
+      arm_endian="Little"
+      arm_target_device_name="Cortex-M0"
+      arm_target_interface_type="SWD"
+      build_output_file_name="$(OutDir)/$(ProjectName).FLM"
+      c_user_include_directories=".;../CMSIS/Device\\Maxim/MAX78000/Include;../CMSIS/Include"
+      debug_target_connection="J-Link"
+      gcc_debugging_level="Level 3"
+      linker_memory_map_file="$(ProjectDir)/MemoryMap.xml" />
+    <configuration
+      Name="Release"
+      arm_linker_heap_size="256"
+      arm_linker_stack_size="256"
+      default_code_section="PrgCode"
+      default_const_section="PrgCode"
+      default_data_section="PrgData"
+      default_zeroed_section="PrgData"
+      gcc_entry_point="ProgramPage"
+      gcc_optimization_level="Level 3"
+      linker_keep_symbols="_vectors;_Dummy;FlashDevice;EraseChip;EraseSector;ProgramPage;Init;UnInit;Verify;BlankCheck;SEGGER_OPEN_Program;SEGGER_OPEN_Erase;SEGGER_OPEN_Read"
+      linker_output_format="hex"
+      linker_section_placement_file="$(ProjectDir)/Placement_release.xml" />
+    <configuration
+      Name="Debug"
+      gcc_optimization_level="None"
+      linker_section_placement_file="$(ProjectDir)/Placement_debug.xml"
+      project_type="Executable" />
+    <folder Name="Src">
+      <file file_name="../FlashDev.c" />
+      <file file_name="../FlashPrg.c" />
+      <file file_name="../main.c">
+        <configuration Name="Release" build_exclude_from_build="Yes" />
+      </file>
+    </folder>
+    <folder Name="System Files">
+      <file file_name="../MAX78000_Startup.s">
+        <configuration Name="Release" build_exclude_from_build="Yes" />
+      </file>
+      <file file_name="../thumb_crt0.s">
+        <configuration Name="Release" build_exclude_from_build="Yes" />
+      </file>
+    </folder>
+  </project>
+  <configuration Name="Release" />
+  <configuration Name="Internal" hidden="Yes" />
+  <configuration Name="Debug" />
+</solution>
