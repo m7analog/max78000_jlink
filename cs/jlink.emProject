@@ -11,6 +11,7 @@
       arm_target_interface_type="SWD"
       build_output_file_name="$(OutDir)/$(ProjectName).FLM"
       c_user_include_directories=".;../CMSIS/Device\\Maxim/MAX78000/Include;../CMSIS/Include"
+      debug_register_definition_file="C:/users/shawn/appdata/local/rowley associates limited/crossworks for arm/v4/packages/targets/max78000/xml/max78000_Registers.xml"
       debug_target_connection="J-Link"
       gcc_debugging_level="Level 3"
       linker_memory_map_file="$(ProjectDir)/MemoryMap.xml" />
